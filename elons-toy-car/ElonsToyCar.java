@@ -1,17 +1,26 @@
 public class ElonsToyCar {
+    private int distanceDriven = 0;
+    private int batteryPercentage = 100;
+
+    public ElonsToyCar() {
+    }
+
     public static ElonsToyCar buy() {
-        throw new UnsupportedOperationException("Please implement the (static) ElonsToyCar.buy()  method");
+        return new ElonsToyCar();
     }
 
     public String distanceDisplay() {
-        throw new UnsupportedOperationException("Please implement the ElonsToyCar.distanceDisplay()  method");
+        return String.format("Driven %d meters", distanceDriven);
     }
 
     public String batteryDisplay() {
-        throw new UnsupportedOperationException("Please implement the ElonsToyCar.batteryDisplay()  method");
+        return String.format(batteryPercentage == 0 ? "Battery empty" : "Battery at %d%%", batteryPercentage);
     }
 
     public void drive() {
-        throw new UnsupportedOperationException("Please implement the ElonsToyCar.drive()  method");
+        if (batteryPercentage != 0) {
+            distanceDriven += 20;
+            batteryPercentage -= 1;
+        }
     }
 }
